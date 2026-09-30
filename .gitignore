@@ -1,0 +1,12 @@
+# Only the published site is tracked; plans, scripts, work/, shots/ and crops/ stay local.
+/*
+!/.gitignore
+!/README.md
+!/index.html
+!/tour.css
+!/tour.js
+!/tour-gl.js
+!/tour-data.js
+!/assets.js
+!/art/
+/art/manifest.json

@@ -1,0 +1,200 @@
+<title>SASEHacks Hill</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="SASEHacks: a free, one-day, beginner-friendly hackathon by OU SASE with Hacklahoma. Saturday, October 24, 2026, on OU's Norman campus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,400..800;1,400..800&family=Figtree:ital,wght@0,400..800;1,400..700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tour.css">
+
+<script>
+/* The one place the event facts live. Every panel reads these; nothing else hard-codes them.
+   Date and times are from the SASE x Hacklahoma proposal. Still placeholders: the building, the registration link, the email. */
+window.SH_EVENT = {
+  name: "SASEHacks",
+  host: "OU SASE",
+  partner: "Hacklahoma",
+  theme: "SASEHack for Good",
+  start: "2026-10-24T08:00:00-05:00",   // check-in opens (opening ceremony 9:00)
+  end:   "2026-10-24T19:15:00-05:00",   // awards and closing wrap up
+  timezone: "Central Time",
+  venue: "OU Norman campus (building to be confirmed)",
+  register: "#register",                // placeholder: registration link TBA
+  instagram: "https://www.instagram.com/ou.sase/",
+  handle: "@ou.sase",
+  email: "sase@ou.edu"                  // placeholder
+};
+/* motion is opt-in: the page is a plain scrolling page until tour.js upgrades it */
+(function(){try{if(matchMedia('(prefers-reduced-motion: no-preference)').matches&&!/[?&]static\b/.test(location.search))document.documentElement.classList.add('js-motion');}catch(e){}})();
+</script>
+
+
+
+<a class="skip" href="#register">Skip to registration</a>
+
+<header class="bar" aria-label="SASEHacks">
+  <nav class="progress" aria-label="Tour stops">
+    <ol>
+      <li><a href="#stop-hero" data-go="0"><span class="dot" aria-hidden="true"></span><span class="lbl">The hill</span></a></li>
+      <li><a href="#stop-about" data-go="1"><span class="dot" aria-hidden="true"></span><span class="lbl">About</span></a></li>
+      <li><a href="#stop-when" data-go="2"><span class="dot" aria-hidden="true"></span><span class="lbl">When</span></a></li>
+      <li><a href="#stop-community" data-go="3"><span class="dot" aria-hidden="true"></span><span class="lbl">Theme</span></a></li>
+      <li><a href="#stop-schedule" data-go="4"><span class="dot" aria-hidden="true"></span><span class="lbl">Schedule</span></a></li>
+    </ol>
+  </nav>
+  <a class="sh-btn bar-cta" data-f="register" href="#register">Register</a>
+</header>
+
+<main id="tour" class="tour">
+  <!-- The painted stage. Decorative only (every word on it is repeated in the panels), so it is hidden from assistive tech. -->
+  <div class="stage" aria-hidden="true">
+    <div class="ly ly-far"></div>
+    <div class="dd dd-far"></div>
+    <div class="ly ly-mid"></div>
+    <div class="dd dd-mid"></div>
+    <div class="ly ly-near"></div>
+    <div class="dd dd-near"></div>
+    <div class="fx">
+      <picture class="fgc fgc-left"><source type="image/avif" srcset="art/fg-cloud-left-warm-1155.avif"><img src="art/fg-cloud-left-warm-1155.webp" alt="" width="1155" height="2024" decoding="async" loading="lazy"></picture>
+      <picture class="fgc fgc-right"><source type="image/avif" srcset="art/fg-cloud-right-warm-1178.avif"><img src="art/fg-cloud-right-warm-1178.webp" alt="" width="1178" height="2400" decoding="async" loading="lazy"></picture>
+      <picture class="fgc fgc-bottom fgc-b1"><source type="image/avif" srcset="art/fg-cloud-bottom-warm-2400.avif"><img src="art/fg-cloud-bottom-warm-2400.webp" alt="" width="2400" height="660" decoding="async" loading="lazy"></picture>
+      <picture class="fgc fgc-bottom fgc-b2"><source type="image/avif" srcset="art/fg-cloud-bottom-warm-2400.avif"><img src="art/fg-cloud-bottom-warm-2400.webp" alt="" width="2400" height="660" decoding="async" loading="lazy"></picture>
+    </div>
+    <div class="dd dd-front"></div>
+    <div class="gate" aria-hidden="true">
+      <div class="gate-yard"><img alt="" decoding="async"></div>
+      <div class="gate-door gate-l"><div class="gate-face"><img alt="" decoding="async"><i></i></div><b class="gate-edge"></b><div class="gate-back"></div></div>
+      <div class="gate-door gate-r"><div class="gate-face"><img alt="" decoding="async"><i></i></div><b class="gate-edge"></b><div class="gate-back"></div></div>
+      <canvas class="gate-dust"></canvas>
+    </div>
+    <div class="gate-fog" aria-hidden="true"><img src="art/fg-cloud-bottom-warm-2400.webp" alt="" decoding="async"><img src="art/fg-cloud-bottom-warm-2400.webp" alt="" decoding="async"><img src="art/fg-cloud-bottom-warm-2400.webp" alt="" decoding="async"></div>
+  </div>
+
+  <!-- ===== the stops, in tour order. In motion mode each section is scroll length and its panel floats over the stage;
+       in static mode (reduced motion / no JS) they are ordinary sections with a picture above each panel. ===== -->
+
+  <section class="stop" id="stop-hero" data-stop="hero" tabindex="-1" aria-labelledby="h-hero">
+    <figure class="crop"><picture><source type="image/avif" srcset="art/static-hero.avif"><img src="art/static-hero.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"></picture></figure>
+    <div data-art="panel-hero" class="panel sh-card" data-side="l">
+      <p class="sh-eyebrow"><span data-f="host">OU SASE</span> &times; <span data-f="partner">Hacklahoma</span></p>
+      <h1 class="sh-h hero-h" id="h-hero">SASE<span class="sh-mark">Hacks</span></h1>
+      <p class="lede">A free, one-day hackathon for first-timers. No overnight. No experience needed.</p>
+      <p class="facts"><span data-f="date">Date announced soon</span> &middot; <span data-f="venue">Venue TBA</span></p>
+      <p class="ctas"><a class="sh-btn" data-f="register" href="#register">Register now</a> <span class="hint" aria-hidden="true">scroll to climb the hill &darr;</span></p>
+    </div>
+  </section>
+
+  <section class="stop" id="stop-about" data-stop="about" tabindex="-1" aria-labelledby="h-about">
+    <figure class="crop"><picture><source type="image/avif" srcset="art/static-about.avif"><img src="art/static-about.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"></picture></figure>
+    <div data-art="panel-about" class="panel sh-card" data-side="l">
+      <p class="sh-eyebrow">What is SASEHacks?</p>
+      <h2 class="sh-h" id="h-about">A one-day hackathon <span class="sh-mark">for first-timers</span></h2>
+      <p>Run by <span data-f="host">OU SASE</span> with <span data-f="partner">Hacklahoma</span>. Team up, build something in about eight hours, and show it off at the expo.</p>
+      <p class="more">Every major and skill level is welcome. It all fits in one Saturday.</p>
+      <p class="facts">Where: <span data-f="venue">Venue TBA</span></p>
+    </div>
+  </section>
+
+  <section class="stop" id="stop-when" data-stop="when" tabindex="-1" aria-labelledby="h-when">
+    <figure class="crop"><picture><source type="image/avif" srcset="art/static-when.avif"><img src="art/static-when.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"></picture></figure>
+    <div data-art="panel-when" class="panel sh-card" data-side="r">
+      <p class="sh-eyebrow">Mark the calendar</p>
+      <h2 class="sh-h" id="h-when">One day. One flock. <span class="sh-mark">Be there.</span></h2>
+      <p class="when-date"><strong data-f="date">Date announced soon</strong><br><span data-f="range">Times TBA</span> <span data-f="tz"></span></p>
+      <div class="countdown">
+        <p class="cd-state" data-state="before">Check-in opens in</p>
+        <p class="cd-state" data-state="during">Happening now. Wrap-up in</p>
+        <p class="cd-state" data-state="after">That&rsquo;s a wrap. Thank you for coming!</p>
+        <div class="cd-clock" data-state="clock" aria-hidden="true">
+          <span><b class="sh-num" data-u="d">--</b><small>days</small></span>
+          <span><b class="sh-num" data-u="h">--</b><small>hours</small></span>
+          <span><b class="sh-num" data-u="m">--</b><small>mins</small></span>
+          <span><b class="sh-num" data-u="s">--</b><small>secs</small></span>
+        </div>
+        <p class="sr-only" data-f="live">Countdown to SASEHacks.</p>
+      </div>
+      <p class="more">Check-in from <span data-f="startTime">8:00 AM</span>, opening ceremony at 9:00. Bring a laptop, a charger and your student ID.</p>
+      <p class="links"><a data-f="gcal" href="#stop-when">Add to Google Calendar</a></p>
+    </div>
+  </section>
+
+  <section class="stop" id="stop-community" data-stop="community" tabindex="-1" aria-labelledby="h-community">
+    <figure class="crop"><picture><source type="image/avif" srcset="art/static-community.avif"><img src="art/static-community.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"></picture></figure>
+    <div data-art="panel-community" class="panel sh-card" data-side="r">
+      <p class="sh-eyebrow">This year&rsquo;s theme: <span data-f="theme">SASEHack for Good</span></p>
+      <h2 class="sh-h" id="h-community">Build something <span class="sh-mark">for your community.</span></h2>
+      <p>Come alone, meet people, and leave with a team.</p>
+      <p class="more">Teams of 3 to 5. Coming solo? We&rsquo;ll match you with a team.</p>
+          </div>
+  </section>
+
+  <section class="stop stop--long stop--last" id="stop-schedule" data-stop="schedule" tabindex="-1" aria-labelledby="h-schedule">
+    <figure class="crop"><picture><source type="image/avif" srcset="art/static-schedule.avif"><img src="art/static-schedule.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"></picture></figure>
+    <div data-art="panel-schedule" class="panel sh-card panel--sched" data-side="r">
+      <p class="sh-eyebrow">The day, hour by hour</p>
+      <h2 class="sh-h" id="h-schedule">Follow the path <span class="sh-mark">up the hill</span></h2>
+      <p class="more">You arrive on your own. By the top of the path, you&rsquo;re part of the flock.</p>
+      <div class="sched-win">
+        <ol class="sched">
+          <li data-at="0"><span class="t sh-num" data-t>--:--</span><span class="n">Check-in</span><span class="d">Grab your name tag and find your team. Solo? We&rsquo;ll have matched you already.</span></li>
+          <li data-at="60"><span class="t sh-num" data-t>--:--</span><span class="n">Opening ceremony</span><span class="d">Welcome from OU SASE and Hacklahoma, the rules, and the prompt reveal.</span></li>
+          <li data-at="75" class="go"><span class="t sh-num" data-t>--:--</span><span class="n">Hacking begins</span><span class="d">Mentors head to the floor.</span></li>
+          <li data-at="105"><span class="t sh-num" data-t>--:--</span><span class="n">Mentor check-in #1</span><span class="d">Help getting started: Git, APIs, or a data toolkit.</span></li>
+          <li data-at="240"><span class="t sh-num" data-t>--:--</span><span class="n">Lunch</span><span class="d">Food comes to you, so you can keep working.</span></li>
+          <li data-at="300"><span class="t sh-num" data-t>--:--</span><span class="n">Mentor check-in #2</span><span class="d">Every table gets a visit.</span></li>
+          <li data-at="420"><span class="t sh-num" data-t>--:--</span><span class="n">Mentor check-in #3</span><span class="d">Every table gets a visit.</span></li>
+          <li data-at="495"><span class="t sh-num" data-t>--:--</span><span class="n">One-hour warning</span><span class="d">How to submit, one more time.</span></li>
+          <li data-at="555" class="due"><span class="t sh-num" data-t>--:--</span><span class="n">Submissions due</span><span class="d">Hard deadline. The form locks, no exceptions.</span></li>
+          <li data-at="570"><span class="t sh-num" data-t>--:--</span><span class="n">Expo judging</span><span class="d">Stay at your table; judges visit each team for about six minutes.</span></li>
+          <li data-at="630"><span class="t sh-num" data-t>--:--</span><span class="n">Raffle &amp; group photo</span><span class="d">While the judges decide.</span></li>
+          <li data-at="660"><span class="t sh-num" data-t>--:--</span><span class="n">Awards &amp; closing</span><span class="d">Prizes, thank-yous, and one last photo with the whole flock.</span></li>
+        </ol>
+      </div>
+      <p class="small">Tentative schedule. We wrap up by <span data-f="endTime">7:15 PM</span> (<span data-f="tz">Central Time</span>).</p>
+    </div>
+    <!-- shown over the courtyard once the gate is open: one card, one call to action (the full steps are in the FAQ) -->
+    <div class="panel sh-card yard-card" data-side="r">
+      <p class="sh-eyebrow">Registration</p>
+      <h2 class="sh-h" id="yc-register">Come alone. <span class="sh-mark">Leave with a flock.</span></h2>
+      <p class="facts"><span data-f="date">Date announced soon</span> &middot; <span data-f="venue">Venue TBA</span></p>
+      <p class="more">Free for students. Sign up as a team of 3 to 5, or solo and we&rsquo;ll match you.</p>
+      <p class="ctas"><a class="sh-btn sh-btn--red sh-btn--xl" data-f="register" href="#register">Register for SASEHacks</a></p>
+      <p class="small">Link coming soon. Questions? <a data-f="email" href="mailto:sase@ou.edu">sase@ou.edu</a> &middot; <a data-f="ig" href="https://www.instagram.com/ou.sase/">@ou.sase</a></p>
+    </div>
+  </section>
+</main>
+
+<section class="after faq" id="faq" aria-labelledby="h-faq">
+  <div class="wrap">
+    <p class="sh-eyebrow">Still wondering?</p>
+    <h2 class="sh-h" id="h-faq">Short, honest <span class="sh-mark">answers</span></h2>
+    <p class="small">Anything we haven&rsquo;t locked in yet is marked TBA.</p>
+    <div class="qa">
+      <details id="register" open><summary>How do I register?</summary><p>Register as a team of 3 to 5, or solo and we&rsquo;ll match you. It takes about two minutes, and it&rsquo;s free for students. A week before, confirm your spot with the link we email you. The registration link is coming soon: follow <a data-f="ig" href="https://www.instagram.com/ou.sase/">@ou.sase</a>.</p></details>
+      <details><summary>What&rsquo;s the prompt?</summary><p>One theme, SASEHack for Good: build something that helps your community. The exact prompt is revealed at the opening ceremony at 9:00. Keep it small. A working project beats a big unfinished one.</p></details>
+      <details><summary>Are there prizes?</summary><p>Yes, for the top teams. Details are coming soon.</p></details>
+      <details><summary>Who can join?</summary><p>OU students of every major and every skill level, and especially anyone who has never done a hackathon. You don&rsquo;t need to be a SASE member.</p></details>
+      <details><summary>How much does it cost?</summary><p>Nothing. It&rsquo;s free for students.</p></details>
+      <details><summary>Is it overnight?</summary><p>No. Check-in starts at 8:00 AM and we wrap up by 7:15 PM, all on Saturday, October 24.</p></details>
+      <details><summary>Do I need a team?</summary><p>Teams are 3 to 5 people. Sign up solo and we&rsquo;ll match you with a team.</p></details>
+      <details><summary>Do I need coding experience?</summary><p>No. The day is built for beginners, and mentors check in with every table three times. Teams need designers, researchers and presenters too.</p></details>
+      <details><summary>What should I bring?</summary><p>A laptop and charger, your student ID, a water bottle, and anything that makes a long day comfy.</p></details>
+      <details><summary>Is there food?</summary><p>Yes: lunch and snacks are brought to the room. Tell us about dietary restrictions when you register.</p></details>
+      <details><summary>How are projects judged?</summary><p>Expo style: you stay at your table and judges visit each team for about six minutes. Scores are out of 100: technical execution 30, problem fit and impact 25, originality 20, presentation 15, and scope achieved 10.</p></details>
+      <details><summary>What if I can&rsquo;t make it after registering?</summary><p>Just don&rsquo;t confirm when the email comes a week before, and your spot goes to someone on the waitlist.</p></details>
+      <details><summary>Where is it? Is the venue accessible?</summary><p>On OU&rsquo;s Norman campus. The building is being confirmed. If you need any accommodations, tell us early. Email <a data-f="email" href="mailto:sase@ou.edu">sase@ou.edu</a> or DM <a data-f="ig" href="https://www.instagram.com/ou.sase/">@ou.sase</a>.</p></details>
+    </div>
+  </div>
+</section>
+<footer class="after foot">
+  <div class="wrap">
+    <p><b><span data-f="name">SASEHacks</span></b> &middot; hosted by <span data-f="host">OU SASE</span> in partnership with <span data-f="partner">Hacklahoma</span> &middot; theme: <span data-f="theme">SASEHack for Good</span></p>
+    <p class="small">The schedule is tentative and the building is being confirmed. Paintings made in Midjourney for SASEHacks.</p>
+    <p class="small"><a href="#stop-hero">Back to the top of the hill</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="tour-data.js"></script>
+<script src="assets.js"></script>
+<script src="tour.js"></script>

@@ -1,0 +1,287 @@
+/* SASEHacks hill tour. Tokens copied from the SASEHacks design system (shell.html). Single light theme on purpose:
+   the page is a sunny painting, and the paper cards carry their own opaque ground. */
+:root{
+  color-scheme: light;
+  --pasture:#3A8E4D; --pasture-dark:#1F4433; --sage:#86A373; --meadow:#A8C96A;
+  --sky:#4AA3E8; --sky-pale:#CFE7F8; --dusk:#1F4E73;
+  --white:#FFFFFF; --wool:#FBF6E9; --paper:#F3EDCA; --sun:#F2C94C; --barn:#D94F3D; --barn-dark:#A8362A;
+  --ink:#2B2A28; --ink-soft:#5B5750;
+  --hand:"Shantell Sans", "Comic Sans MS", "Segoe Print", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"DM Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --t-hero:clamp(3rem, 9vw, 7.5rem);
+  --t-h1:clamp(2.25rem, 5.5vw, 4.25rem);
+  --t-h2:clamp(1.6rem, 3.4vw, 2.6rem);
+  --t-h3:clamp(1.2rem, 2vw, 1.5rem);
+  --t-body:clamp(1rem, 1.1vw, 1.125rem);
+  --t-small:.875rem;
+  --gutter:max(16px, 5vw);
+  --wobbly:255px 18px 225px 18px / 18px 225px 18px 255px;
+  --wobbly-2:18px 225px 18px 255px / 255px 18px 225px 18px;
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--sky)}
+body{margin:0;background:var(--wool);color:var(--ink);font:400 var(--t-body)/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--sun);border-radius:6px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---- design-system primitives ---- */
+.sh-eyebrow{font:700 .78rem/1.2 var(--body);letter-spacing:.16em;text-transform:uppercase;margin:0 0 .6rem;display:flex;gap:.5em;align-items:center;color:var(--pasture-dark)}
+.sh-h{font-family:var(--hand);font-weight:800;line-height:1.04;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.sh-num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.sh-mark{background:linear-gradient(transparent 55%, var(--sun) 55%, var(--sun) 88%, transparent 88%);padding:0 .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sh-btn{display:inline-flex;align-items:center;gap:.55em;font:800 1.02rem/1 var(--hand);color:var(--ink);background:var(--sun);border:3px solid var(--ink);border-radius:var(--wobbly);padding:.85em 1.35em;text-decoration:none;cursor:pointer;box-shadow:4px 5px 0 var(--ink);transition:transform .15s, box-shadow .15s;white-space:nowrap}
+.sh-btn:hover{transform:translate(-2px,-2px) rotate(-1deg);box-shadow:6px 7px 0 var(--ink)}
+.sh-btn:active{transform:translate(2px,3px);box-shadow:1px 2px 0 var(--ink)}
+.sh-btn--red{background:var(--barn);color:var(--white)}
+.sh-btn--xl{font-size:1.2rem;padding:.95em 1.6em;box-shadow:5px 6px 0 var(--ink)}
+.sh-card{background:var(--wool);border:2.5px solid var(--ink);border-radius:var(--wobbly-2);padding:clamp(18px,2.2vw,28px);box-shadow:5px 6px 0 rgba(43,42,40,.9)}
+.sh-doodle{display:inline-block;width:1.2em;height:1.2em;overflow:visible;flex:none}
+
+/* ---- skip link ---- */
+.skip{position:fixed;left:16px;top:calc(12px + var(--safe-t));z-index:100;background:var(--sun);color:var(--ink);font:800 1rem/1 var(--hand);padding:.8em 1.1em;border:3px solid var(--ink);border-radius:12px;transform:translateY(-200%);transition:transform .2s}
+.skip:focus{transform:none}
+
+/* ---- panel content ---- */
+.panel p{margin:.5rem 0 0}
+.panel .hero-h{font-size:clamp(2.6rem,5.2vw,4.6rem)}
+.panel h2{font-size:clamp(1.55rem,2.6vw,2.35rem)}
+.panel .lede{font-size:clamp(1rem,1.25vw,1.18rem)}
+.panel .facts{font:700 .98rem/1.4 var(--hand);color:var(--dusk)}
+.panel .small,.after .small{font-size:var(--t-small);color:var(--ink-soft)}
+.panel .ctas{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;margin-top:1rem}
+.panel .hint{font:600 .9rem/1.2 var(--hand);color:var(--ink-soft)}
+.panel ul,.panel ol{margin:.6rem 0 0;padding:0;list-style:none}
+.ribbons li,.tracks li,.steps li{position:relative;padding-left:1.7em;margin:.28rem 0;line-height:1.35}
+.ribbons li::before{content:"";position:absolute;left:0;top:.1em;width:1.05em;height:1.05em;border-radius:50%;background:var(--sky);border:2px solid var(--ink)}
+.ribbons li:nth-child(2)::before{background:var(--barn)}
+.ribbons li:nth-child(3)::before{background:var(--wool)}
+.ribbons li:nth-child(4)::before{background:var(--sun)}
+.tracks{counter-reset:tr}
+.tracks li{counter-increment:tr}
+.tracks li::before,.steps li::before{content:counter(tr, decimal-leading-zero);position:absolute;left:0;top:0;font:500 .85rem/1.5 var(--mono);color:var(--pasture)}
+.steps{counter-reset:tr}.steps li{counter-increment:tr}
+.steps li::before{content:counter(tr);width:1.35em;height:1.35em;line-height:1.2em;text-align:center;border:2px solid var(--ink);border-radius:50%;background:var(--sun);color:var(--ink);font:800 .85rem/1.2em var(--hand);top:.05em}
+.when-date{font:700 1.08rem/1.35 var(--hand)}
+.links a{font-weight:700}
+
+/* countdown (states as in section 03) */
+.countdown{margin-top:.7rem}
+.cd-state{display:none;font:700 .95rem/1.2 var(--hand);margin:0 0 .35rem!important;color:var(--pasture-dark)}
+.cd-state[data-show]{display:block}
+.cd-clock{display:none;gap:.45rem}
+.cd-clock[data-show]{display:flex}
+.cd-clock span{flex:1;min-width:0;text-align:center;background:var(--paper);border:2px solid var(--ink);border-radius:10px 14px 9px 13px;padding:.35rem .2rem .3rem;box-shadow:2px 3px 0 var(--ink)}
+.cd-clock b{display:block;font-size:clamp(1.35rem,2.4vw,2rem);line-height:1.05}
+.cd-clock small{display:block;font:600 .68rem/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* schedule list */
+.sched li{display:grid;grid-template-columns:4.9em 1fr;column-gap:.6rem;padding:.3rem 0;border-bottom:1.5px dashed rgba(43,42,40,.25)}
+.sched li:last-child{border-bottom:0}
+.sched .t{font-size:.9rem;color:var(--pasture);padding-top:.12em;white-space:nowrap}
+.sched .n{font:800 1.02rem/1.25 var(--hand)}
+.sched .d{grid-column:2;font-size:.9rem;line-height:1.4;color:var(--ink-soft)}
+.sched li.go .n{background:linear-gradient(transparent 55%, var(--sun) 55%, var(--sun) 90%, transparent 90%)}
+.sched li.due .n{color:var(--barn-dark)}
+.sched li.is-now .n::after{content:" \2190 now";font:700 .8rem var(--hand);color:var(--barn-dark)}
+
+/* ================= STATIC MODE (default: no JS, or prefers-reduced-motion) ================= */
+.stage{display:none}
+.bar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:12px;justify-content:space-between;padding:8px var(--gutter);padding-top:calc(8px + var(--safe-t));background:var(--wool);border-bottom:2.5px solid var(--ink)}
+.progress ol{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0;padding:0;list-style:none}
+.progress a{display:inline-flex;align-items:center;gap:6px;min-height:32px;text-decoration:none;font:700 .85rem/1 var(--hand)}
+.progress .dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--ink);background:var(--wool);flex:none}
+.progress a[aria-current] .dot{background:var(--sun)}
+.bar-cta{padding:.6em 1em;font-size:.95rem;box-shadow:3px 4px 0 var(--ink)}
+html:not(.js-motion) .tour{background:var(--sky-pale)}
+html:not(.js-motion) .stop{padding:clamp(28px,5vw,56px) var(--gutter);max-width:1100px;margin:0 auto;scroll-margin-top:64px}
+html:not(.js-motion) .crop{margin:0;border:2.5px solid var(--ink);border-radius:18px 26px 16px 24px;overflow:hidden;box-shadow:5px 6px 0 var(--ink);aspect-ratio:16/9;background:var(--sky)}
+html:not(.js-motion) .crop img{display:block;width:100%;height:100%;object-fit:cover;max-width:100%}
+html:not(.js-motion) .panel{margin:-28px clamp(8px,3vw,40px) 0;position:relative;max-width:44rem}
+html:not(.js-motion) .stop:nth-of-type(even) .panel{margin-left:auto}
+@media (max-width:640px){
+  .progress .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .progress ol{gap:0;flex-wrap:nowrap}
+  .progress a{min-width:24px;justify-content:center}
+  .bar{padding-inline:12px}
+  html:not(.js-motion) .panel{margin:-18px 6px 0}
+}
+
+/* ---- after the tour: FAQ + footer (both modes) ---- */
+.after{position:relative;z-index:2;padding:clamp(56px,8vw,110px) var(--gutter)}
+.after .wrap{max-width:860px;margin:0 auto}
+.faq{background:var(--wool)}
+.faq h2{font-size:var(--t-h2)}
+.qa{margin-top:1.4rem;display:grid;gap:.7rem}
+.qa details{background:var(--white);border:2.5px solid var(--ink);border-radius:var(--wobbly-2);padding:.2rem 1.1rem;box-shadow:3px 4px 0 var(--ink)}
+.qa summary{font:800 1.1rem/1.3 var(--hand);cursor:pointer;padding:.7rem 0;list-style-position:outside}
+.qa p{margin:0 0 .9rem}
+.foot{background:var(--pasture-dark);color:var(--wool);padding-block:40px}
+.foot .small{color:var(--sky-pale)}
+.foot p{margin:.35rem 0}
+
+/* ================= MOTION MODE ================= */
+.js-motion .tour{position:relative}
+.js-motion .stage{display:block;position:sticky;top:0;width:100%;height:100vh;height:100lvh;overflow:hidden;overflow:clip;contain:strict;background:#5f8fc4;z-index:0}
+.js-motion .ly,.js-motion .dd,.js-motion .fx{position:absolute;inset:0;pointer-events:none}
+.js-motion .ly-far{z-index:1}.js-motion .dd-far{z-index:2}.js-motion .ly-mid{z-index:3}.js-motion .dd-mid{z-index:4}
+.js-motion .ly-near{z-index:5}.js-motion .dd-near{z-index:6}.js-motion .fx{z-index:7}
+/* WebGL painter (tour.js): the far/mid/near painting drawn in one canvas, above the LQIP in .ly-far */
+.js-motion .gl{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+.ly img{position:absolute;left:0;top:0;max-width:none;transform-origin:0 0;user-select:none;-webkit-user-drag:none;backface-visibility:hidden}
+.ly img.plate{opacity:0;transition:opacity .28s linear}
+.ly img.plate.on{opacity:1}
+.ly img.base.off{opacity:0}
+.js-motion .stop{position:relative;height:calc(var(--hold,90) * 1svh + var(--move,90) * 1svh);margin:0}
+.js-motion .stop--last{height:calc(var(--hold,90) * 1svh + var(--move,90) * 1svh + 100svh)}   /* the stage stays pinned until the clouds have settled */
+.js-motion .stop:first-of-type{margin-top:-100vh;margin-top:-100lvh}
+.js-motion .crop{display:none}
+.js-motion .stop:focus{outline:none}
+
+/* panels float over the stage; tour.js sets --w (0..1 visibility) */
+.js-motion .panel{position:fixed;z-index:20;--w:0;opacity:var(--w);transform:translate3d(0,calc((1 - var(--w)) * 26px),0) rotate(-.5deg);
+  width:clamp(20rem,var(--pw,34%),36rem);max-height:calc(100svh - 120px);overflow:auto;overscroll-behavior:contain}
+.js-motion .panel[data-side="r"]{transform:translate3d(0,calc((1 - var(--w)) * 26px),0) rotate(.6deg)}
+@media (min-aspect-ratio:1/1){
+  .js-motion #stop-hero .panel{left:4%;top:7svh;--pw:36%}
+  .js-motion #stop-about .panel{left:3%;top:6svh;--pw:33%}
+  .js-motion #stop-when .panel{right:3%;top:10svh;--pw:31%}
+  .js-motion #stop-community .panel{right:4%;top:8svh;--pw:34%}
+  .js-motion #stop-schedule .panel{right:3%;top:5svh;--pw:34%;max-height:calc(100svh - 10svh - 64px)}
+  .js-motion #stop-prizes .panel{left:3%;top:6svh;--pw:30%}
+  .js-motion #stop-tracks .panel{left:4%;top:6svh;--pw:33%}
+  .js-motion #register .panel{right:4%;top:7svh;--pw:34%}
+  .js-motion #stop-finale .panel{left:4%;top:7svh;--pw:34%}
+  /* bottom bar: progress centred, register at right */
+  .js-motion .bar{position:fixed;inset:auto 0 0 0;background:none;border:0;padding:0 24px calc(14px + var(--safe-b));justify-content:center;pointer-events:none}
+  .js-motion .progress{pointer-events:auto;background:rgba(251,246,233,.94);border:2.5px solid var(--ink);border-radius:999px;padding:3px 14px;box-shadow:3px 4px 0 rgba(43,42,40,.85)}
+  .js-motion .progress ol{flex-wrap:nowrap;gap:2px 10px}
+  .js-motion .progress .lbl{font-size:.8rem}
+  .js-motion .progress a{opacity:.72}
+  .js-motion .progress a[aria-current]{opacity:1}
+  .js-motion .progress a[aria-current] .lbl{background:linear-gradient(transparent 55%, var(--sun) 55%, var(--sun) 90%, transparent 90%)}
+  .js-motion .bar-cta{pointer-events:auto;position:absolute;right:24px;bottom:calc(14px + var(--safe-b));font-size:1.3rem;padding:.9em 1.7em;border-width:3.5px;box-shadow:5px 6px 0 var(--ink)}
+  .js-motion .bar-cta:hover{box-shadow:7px 8px 0 var(--ink)}
+}
+@media (min-aspect-ratio:1/1) and (max-width:1100px){
+  .js-motion .progress .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .js-motion .progress a{min-width:26px;justify-content:center}
+}
+@media (max-aspect-ratio:9999/10000){
+  /* phones and portrait tablets: top strip + top band or bottom sheet */
+  .js-motion .bar{position:fixed;inset:0 0 auto 0;background:none;border:0;padding:calc(8px + var(--safe-t)) 12px 0;pointer-events:none}
+  .js-motion .progress,.js-motion .bar-cta{pointer-events:auto}
+  .js-motion .progress{background:rgba(251,246,233,.94);border:2px solid var(--ink);border-radius:999px;padding:0 8px;box-shadow:2px 3px 0 rgba(43,42,40,.8)}
+  .js-motion .progress ol{flex-wrap:nowrap;gap:0}
+  .js-motion .progress .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .js-motion .progress a{min-width:26px;min-height:32px;justify-content:center}
+  .js-motion .bar-cta{font-size:.85rem;padding:.55em .85em;box-shadow:2px 3px 0 var(--ink)}
+  .js-motion .panel{left:16px;right:16px;width:auto;max-width:34rem;margin-inline:auto;padding:14px 16px 16px;max-height:44svh}
+  .js-motion .panel h2{font-size:1.5rem}
+  .js-motion .panel .hero-h{font-size:2.6rem}
+  .js-motion .panel p{margin-top:.35rem}
+  .js-motion .panel .sh-eyebrow{margin-bottom:.35rem;font-size:.72rem}
+  .js-motion .panel,.js-motion .panel .lede{font-size:.95rem;line-height:1.45}
+  .js-motion .panel .ctas{margin-top:.6rem}
+  .js-motion .panel .sh-btn{font-size:.95rem;padding:.7em 1.1em}
+  .js-motion .panel .sh-btn--xl{font-size:1.1rem;padding:.85em 1.3em;width:100%;justify-content:center}
+  /* top bands */
+  .js-motion #stop-community .panel,.js-motion #stop-tracks .panel,
+  .js-motion #register .panel{top:calc(56px + var(--safe-t))}
+  /* bottom sheets (hero/finale too: the town sits in the top half of the portrait frame) */
+  .js-motion #stop-hero .panel,.js-motion #stop-finale .panel,
+  .js-motion #stop-about .panel,.js-motion #stop-when .panel,.js-motion #stop-schedule .panel,
+  .js-motion #stop-prizes .panel{bottom:calc(14px + var(--safe-b));top:auto}
+  .js-motion #stop-schedule .panel{max-height:40svh}
+  .js-motion .panel .hint{display:none}
+}
+
+/* schedule reveal (motion only): the list is a window that follows the newest milestone */
+.js-motion .sched-win{position:relative;overflow:hidden;margin-top:.5rem;max-height:var(--win,26rem)}
+.js-motion .sched{margin:0;transition:transform .35s ease}
+.js-motion .sched li{transition:opacity .3s}
+.js-motion .sched li:not(.shown){opacity:.28}
+.js-motion .sched li:not(.cur) .d{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.js-motion .sched li.cur .n{color:var(--ink)}
+@media (max-aspect-ratio:9999/10000){ .js-motion .sched-win{--win:9.6rem} .js-motion .panel--sched .more{display:none} }
+
+/* ---- foreground painted clouds (viewport-anchored, depth 1.45 / 1.6) ---- */
+.fgc{position:absolute;display:block;will-change:transform}
+.fgc img{display:block;width:100%;height:100%;max-width:none}
+.fgc-left{left:-12%;bottom:-10%;height:62%;aspect-ratio:1155/2024;transform-origin:0 100%}
+.fgc-right{right:-8%;top:20%;height:75%;aspect-ratio:1178/2400;transform-origin:100% 50%}
+.fgc-bottom{left:50%;top:100%;height:72%;aspect-ratio:2400/660;transform-origin:50% 0}
+@media (max-aspect-ratio:9999/10000){
+  .fgc-left{display:none}
+  .fgc-right{height:56%;top:50%;right:-35%}
+  .fgc-bottom{height:50%}
+}
+
+/* ---- smooth scrolling (Lenis) ---- */
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+
+/* ---- Midjourney asset slots (assets.js). Anchor = bottom-centre of the image, sizes in painting px ---- */
+.as{position:absolute;left:0;top:0;transform-origin:0 0;visibility:hidden;will-change:transform,opacity;pointer-events:none}
+.as picture,.as img{display:block;width:100%;height:auto}
+.as > picture{transform:translate(-50%,-100%)}
+.as-flip > picture{transform:translate(-50%,-100%) scaleX(-1)}
+.js-motion .as-bob > picture{animation:as-bob 3.4s ease-in-out infinite}
+.js-motion .as-flip.as-bob > picture{animation-name:as-bob-flip}
+@keyframes as-bob{0%,100%{transform:translate(-50%,-100%)}50%{transform:translate(-50%,calc(-100% - 3px))}}
+@keyframes as-bob-flip{0%,100%{transform:translate(-50%,-100%) scaleX(-1)}50%{transform:translate(-50%,calc(-100% - 3px)) scaleX(-1)}}
+.as-debug{transform-origin:0 0}
+.as-debug::before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;translate:-50% -100%;border:3px dashed #D94F3D;background:rgba(242,201,76,.25);border-radius:8px}
+.as-tag{position:absolute;left:0;top:0;translate:-50% -100%;font:700 14px/1 var(--mono);background:#2B2A28;color:#FBF6E9;padding:4px 6px;border-radius:4px;white-space:nowrap}
+.js-motion .dd-front{z-index:8}
+
+/* ---- panel backdrops made in Midjourney (art/fg/panel-<stop>.webp): the art replaces the paper card ---- */
+.panel.has-art{background:var(--panel-art) center / 100% 100% no-repeat;border:0;box-shadow:none;padding:clamp(34px,4vw,56px) clamp(30px,3.6vw,52px)}
+
+/* ---- Schedule -> Prizes: the town gate opens onto the courtyard (tour.js drives --t states) ---- */
+.gate{position:absolute;inset:0;z-index:9;visibility:hidden;pointer-events:none;perspective:1600px;perspective-origin:50% 45%}
+.gate img{position:absolute;top:0;height:100%;object-fit:cover;max-width:none;user-select:none}
+.gate-yard{position:absolute;inset:0;overflow:hidden}
+.gate-yard img{left:0;width:100%;transform-origin:50% 55%}
+.gate-door{position:absolute;top:0;bottom:0;width:50%;transform-style:preserve-3d;--th:max(26px,3.6vw)}
+.gate-l{left:0;transform-origin:0 50%}
+.gate-r{right:0;transform-origin:100% 50%}
+.gate-face{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden}
+.gate-face,.gate-edge,.gate-back{opacity:var(--df,1)}   /* on the pieces, not the door: opacity would flatten its 3D */
+.gate-door img{width:200%}                     /* each door shows its half of the one gate image */
+.gate-l img{left:0}
+.gate-r img{left:-100%}
+.gate-face i{position:absolute;inset:0;pointer-events:none;opacity:0}   /* shading as a door turns away from the light */
+.gate-l i{background:linear-gradient(90deg,rgba(20,15,10,0) 40%,rgba(20,15,10,.55))}
+.gate-r i{background:linear-gradient(270deg,rgba(20,15,10,0) 40%,rgba(20,15,10,.55))}
+/* the door's thickness: a slab of oak on the free edge, iron straps crossing it, and a darker back face */
+.gate-edge{position:absolute;top:0;bottom:0;width:var(--th);backface-visibility:hidden;
+  background:repeating-linear-gradient(180deg,transparent 0 11%,#1d1712 11% 13.2%,transparent 13.2% 24%),
+    linear-gradient(90deg,#3d2616,#7a522e 30%,#8c6136 55%,#5a3a20)}
+.gate-l .gate-edge{left:100%;transform-origin:0 50%;transform:rotateY(90deg)}
+.gate-r .gate-edge{right:100%;transform-origin:100% 50%;transform:rotateY(-90deg)}
+.gate-back{position:absolute;inset:0;backface-visibility:hidden;transform:translateZ(calc(-1 * var(--th))) rotateY(180deg);
+  background:repeating-linear-gradient(90deg,#4a2f1b 0 7.5%,#3a2415 7.5% 8%),#4a2f1b}
+.gate-fog{position:absolute;inset:0;z-index:10;visibility:hidden;pointer-events:none;overflow:hidden;background:rgba(246,241,232,0)}
+.gate-fog img{position:absolute;left:50%;top:100%;height:62%;width:auto;max-width:none;will-change:transform}
+
+/* no page scrollbar: the tour is driven by scrolling and the nav shows where you are */
+html{scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
+
+/* dust thrown off when the doors slam */
+.gate-dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+/* the old stops as cards over the courtyard (tour.js sets --w) */
+.js-motion #stop-schedule .yard-card{z-index:21;max-height:calc(100svh - 120px)}
+@media (min-aspect-ratio:1/1){
+  .js-motion #stop-schedule .yard-card{left:4%;right:auto;top:8svh;bottom:auto;--pw:33%}
+  .js-motion #stop-schedule .yard-card[data-side="r"]{left:auto;right:4%}
+}
+@media (max-aspect-ratio:1/1){
+  .js-motion #stop-schedule .yard-card{left:16px;right:16px;top:calc(56px + var(--safe-t));bottom:auto;max-height:46svh}
+}
