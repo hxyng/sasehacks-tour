@@ -1,7 +1,7 @@
 <title>SASEHacks Hill</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="SASEHacks: a free, one-day, beginner-friendly hackathon by OU SASE with Hacklahoma. Saturday, October 24, 2026, on OU's Norman campus.">
+<meta name="description" content="SASEHacks: a free, one-day, beginner-friendly hackathon by OU SASE with Hacklahoma. Saturday, October 24, 2026, in Gallogly Hall 127 on OU's Norman campus.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,400..800;1,400..800&family=Figtree:ital,wght@0,400..800;1,400..700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
@@ -9,20 +9,20 @@
 
 <script>
 /* The one place the event facts live. Every panel reads these; nothing else hard-codes them.
-   Date and times are from the SASE x Hacklahoma proposal. Still placeholders: the building, the registration link, the email. */
+   Date and times are from the SASE x Hacklahoma proposal. */
 window.SH_EVENT = {
   name: "SASEHacks",
   host: "OU SASE",
   partner: "Hacklahoma",
-  theme: "SASEHack for Good",
+  theme: "to be released",
   start: "2026-10-24T08:00:00-05:00",   // check-in opens (opening ceremony 9:00)
   end:   "2026-10-24T19:15:00-05:00",   // awards and closing wrap up
   timezone: "Central Time",
-  venue: "OU Norman campus (building to be confirmed)",
-  register: "#register",                // placeholder: registration link TBA
+  venue: "Gallogly Hall 127, OU Norman campus",
+  register: "https://hacksy.app/events/sase/sasehacks",   // the Hacksy registration form
   instagram: "https://www.instagram.com/ou.sase/",
   handle: "@ou.sase",
-  email: "sase@ou.edu"                  // placeholder
+  email: "sase@ou.edu"
 };
 /* motion is opt-in: the page is a plain scrolling page until tour.js upgrades it */
 (function(){try{if(matchMedia('(prefers-reduced-motion: no-preference)').matches&&!/[?&]static\b/.test(location.search))document.documentElement.classList.add('js-motion');}catch(e){}})();
@@ -30,7 +30,7 @@ window.SH_EVENT = {
 
 
 
-<a class="skip" href="#register">Skip to registration</a>
+<a class="skip" href="https://hacksy.app/events/sase/sasehacks">Skip to registration</a>
 
 <header class="bar" aria-label="SASEHacks">
   <nav class="progress" aria-label="Tour stops">
@@ -42,7 +42,7 @@ window.SH_EVENT = {
       <li><a href="#stop-schedule" data-go="4"><span class="dot" aria-hidden="true"></span><span class="lbl">Schedule</span></a></li>
     </ol>
   </nav>
-  <a class="sh-btn bar-cta" data-f="register" href="#register">Register</a>
+  <a class="sh-btn bar-cta" data-f="register" href="https://hacksy.app/events/sase/sasehacks">Register</a>
 </header>
 
 <main id="tour" class="tour">
@@ -79,8 +79,8 @@ window.SH_EVENT = {
       <p class="sh-eyebrow"><span data-f="host">OU SASE</span> &times; <span data-f="partner">Hacklahoma</span></p>
       <h1 class="sh-h hero-h" id="h-hero">SASE<span class="sh-mark">Hacks</span></h1>
       <p class="lede">A free, one-day hackathon for first-timers. No overnight. No experience needed.</p>
-      <p class="facts"><span data-f="date">Date announced soon</span> &middot; <span data-f="venue">Venue TBA</span></p>
-      <p class="ctas"><a class="sh-btn" data-f="register" href="#register">Register now</a> <span class="hint" aria-hidden="true">scroll to climb the hill &darr;</span></p>
+      <p class="facts"><span data-f="date">Saturday, October 24, 2026</span> &middot; <span data-f="venue">Gallogly Hall 127, OU Norman campus</span></p>
+      <p class="ctas"><a class="sh-btn" data-f="register" href="https://hacksy.app/events/sase/sasehacks">Register now</a> <span class="hint" aria-hidden="true">scroll to climb the hill &darr;</span></p>
     </div>
   </section>
 
@@ -91,7 +91,7 @@ window.SH_EVENT = {
       <h2 class="sh-h" id="h-about">A one-day hackathon <span class="sh-mark">for first-timers</span></h2>
       <p>Run by <span data-f="host">OU SASE</span> with <span data-f="partner">Hacklahoma</span>. Team up, build something in about eight hours, and show it off at the expo.</p>
       <p class="more">Every major and skill level is welcome. It all fits in one Saturday.</p>
-      <p class="facts">Where: <span data-f="venue">Venue TBA</span></p>
+      <p class="facts">Where: <span data-f="venue">Gallogly Hall 127, OU Norman campus</span></p>
     </div>
   </section>
 
@@ -100,7 +100,7 @@ window.SH_EVENT = {
     <div data-art="panel-when" class="panel sh-card" data-side="r">
       <p class="sh-eyebrow">Mark the calendar</p>
       <h2 class="sh-h" id="h-when">One day. One flock. <span class="sh-mark">Be there.</span></h2>
-      <p class="when-date"><strong data-f="date">Date announced soon</strong><br><span data-f="range">Times TBA</span> <span data-f="tz"></span></p>
+      <p class="when-date"><strong data-f="date">Saturday, October 24, 2026</strong><br><span data-f="range">8:00 AM to 7:15 PM</span> <span data-f="tz"></span></p>
       <div class="countdown">
         <p class="cd-state" data-state="before">Check-in opens in</p>
         <p class="cd-state" data-state="during">Happening now. Wrap-up in</p>
@@ -121,8 +121,8 @@ window.SH_EVENT = {
   <section class="stop" id="stop-community" data-stop="community" tabindex="-1" aria-labelledby="h-community">
     <figure class="crop"><picture><source type="image/avif" srcset="art/static-community.avif"><img src="art/static-community.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"></picture></figure>
     <div data-art="panel-community" class="panel sh-card" data-side="r">
-      <p class="sh-eyebrow">This year&rsquo;s theme: <span data-f="theme">SASEHack for Good</span></p>
-      <h2 class="sh-h" id="h-community">Build something <span class="sh-mark">for your community.</span></h2>
+      <p class="sh-eyebrow">This year&rsquo;s theme: <span data-f="theme">to be released</span></p>
+      <h2 class="sh-h" id="h-community">Revealed at the <span class="sh-mark">opening ceremony.</span></h2>
       <p>Come alone, meet people, and leave with a team.</p>
       <p class="more">Teams of 4. Coming solo? We&rsquo;ll match you with a team.</p>
           </div>
@@ -156,10 +156,10 @@ window.SH_EVENT = {
     <div class="panel sh-card yard-card" data-side="r">
       <p class="sh-eyebrow">Registration</p>
       <h2 class="sh-h" id="yc-register">Come alone. <span class="sh-mark">Leave with a flock.</span></h2>
-      <p class="facts"><span data-f="date">Date announced soon</span> &middot; <span data-f="venue">Venue TBA</span></p>
+      <p class="facts"><span data-f="date">Saturday, October 24, 2026</span> &middot; <span data-f="venue">Gallogly Hall 127, OU Norman campus</span></p>
       <p class="more">Free for students. Sign up as a team of 4, or solo and we&rsquo;ll match you.</p>
-      <p class="ctas"><a class="sh-btn sh-btn--red sh-btn--xl" data-f="register" href="#register">Register for SASEHacks</a></p>
-      <p class="small">Link coming soon. Questions? <a data-f="email" href="mailto:sase@ou.edu">sase@ou.edu</a> &middot; <a data-f="ig" href="https://www.instagram.com/ou.sase/">@ou.sase</a></p>
+      <p class="ctas"><a class="sh-btn sh-btn--red sh-btn--xl" data-f="register" href="https://hacksy.app/events/sase/sasehacks">Register for SASEHacks</a></p>
+      <p class="small">Questions? <a data-f="email" href="mailto:sase@ou.edu">sase@ou.edu</a> &middot; <a data-f="ig" href="https://www.instagram.com/ou.sase/">@ou.sase</a></p>
     </div>
   </section>
 </main>
@@ -168,28 +168,22 @@ window.SH_EVENT = {
   <div class="wrap">
     <p class="sh-eyebrow">Still wondering?</p>
     <h2 class="sh-h" id="h-faq">Short, honest <span class="sh-mark">answers</span></h2>
-    <p class="small">Anything we haven&rsquo;t locked in yet is marked TBA.</p>
+    <p class="small">Can&rsquo;t find your answer? Email <a data-f="email" href="mailto:sase@ou.edu">sase@ou.edu</a> or DM <a data-f="ig" href="https://www.instagram.com/ou.sase/">@ou.sase</a>.</p>
     <div class="qa">
-      <details id="register" open><summary>How do I register?</summary><p>Register as a team of 4, or solo and we&rsquo;ll match you. It takes about two minutes, and it&rsquo;s free for students. A week before, confirm your spot with the link we email you. The registration link is coming soon: follow <a data-f="ig" href="https://www.instagram.com/ou.sase/">@ou.sase</a>.</p></details>
-      <details><summary>What&rsquo;s the prompt?</summary><p>One theme, SASEHack for Good: build something that helps your community. The exact prompt is revealed at the opening ceremony at 9:00. Keep it small. A working project beats a big unfinished one.</p></details>
-      <details><summary>Are there prizes?</summary><p>Yes, for the top teams. Details are coming soon.</p></details>
-      <details><summary>Who can join?</summary><p>OU students of every major and every skill level, and especially anyone who has never done a hackathon. You don&rsquo;t need to be a SASE member.</p></details>
-      <details><summary>How much does it cost?</summary><p>Nothing. It&rsquo;s free for students.</p></details>
-      <details><summary>Is it overnight?</summary><p>No. Check-in starts at 8:00 AM and we wrap up by 7:15 PM, all on Saturday, October 24.</p></details>
-      <details><summary>Do I need a team?</summary><p>Teams are 4 people. Sign up solo and we&rsquo;ll match you with a team.</p></details>
-      <details><summary>Do I need coding experience?</summary><p>No. The day is built for beginners, and mentors check in with every table three times. Teams need designers, researchers and presenters too.</p></details>
-      <details><summary>What should I bring?</summary><p>A laptop and charger, your student ID, a water bottle, and anything that makes a long day comfy.</p></details>
-      <details><summary>Is there food?</summary><p>Yes: lunch and snacks are brought to the room. Tell us about dietary restrictions when you register.</p></details>
-      <details><summary>How are projects judged?</summary><p>Expo style: you stay at your table and judges visit each team for about six minutes. Scores are out of 100: technical execution 30, problem fit and impact 25, originality 20, presentation 15, and scope achieved 10.</p></details>
-      <details><summary>What if I can&rsquo;t make it after registering?</summary><p>Just don&rsquo;t confirm when the email comes a week before, and your spot goes to someone on the waitlist.</p></details>
-      <details><summary>Where is it? Is the venue accessible?</summary><p>On OU&rsquo;s Norman campus. The building is being confirmed. If you need any accommodations, tell us early. Email <a data-f="email" href="mailto:sase@ou.edu">sase@ou.edu</a> or DM <a data-f="ig" href="https://www.instagram.com/ou.sase/">@ou.sase</a>.</p></details>
+      <details id="register" open><summary>How do I register?</summary><p>It&rsquo;s free and takes two minutes. Sign up as a team of 4, or solo and we&rsquo;ll match you. Confirm with the email we send a week before; if you don&rsquo;t, your spot goes to the waitlist. <a data-f="register" href="https://hacksy.app/events/sase/sasehacks">Register on Hacksy</a>.</p></details>
+      <details><summary>Who can join? Do I need to code?</summary><p>Any OU student, any major, no SASE membership needed. No experience needed either: mentors visit every table, and teams need designers and presenters too.</p></details>
+      <details><summary>When is it, and is there food?</summary><p><span data-f="date">Saturday, October 24, 2026</span>, <span data-f="startTime">8:00 AM</span> to <span data-f="endTime">7:15 PM</span>. Not overnight. Lunch and snacks are provided.</p></details>
+      <details><summary>What&rsquo;s the theme?</summary><p>The theme is <span data-f="theme">to be released</span>. We reveal it, with the exact prompt, at the opening ceremony.</p></details>
+      <details><summary>How is it judged? Are there prizes?</summary><p>Expo style: judges visit your table for about six minutes. Prizes go to the top teams; details soon.</p></details>
+      <details><summary>What should I bring?</summary><p>A laptop, charger, student ID and a water bottle.</p></details>
+      <details><summary>Where is it?</summary><p>Gallogly Hall, room 127, on OU&rsquo;s Norman campus. Need accommodations? Email <a data-f="email" href="mailto:sase@ou.edu">sase@ou.edu</a>.</p></details>
     </div>
   </div>
 </section>
 <footer class="after foot">
   <div class="wrap">
-    <p><b><span data-f="name">SASEHacks</span></b> &middot; hosted by <span data-f="host">OU SASE</span> in partnership with <span data-f="partner">Hacklahoma</span> &middot; theme: <span data-f="theme">SASEHack for Good</span></p>
-    <p class="small">The schedule is tentative and the building is being confirmed. Paintings made in Midjourney for SASEHacks.</p>
+    <p><b><span data-f="name">SASEHacks</span></b> &middot; hosted by <span data-f="host">OU SASE</span> in partnership with <span data-f="partner">Hacklahoma</span> &middot; theme: <span data-f="theme">to be released</span></p>
+    <p class="small">The schedule is tentative. Paintings made in Midjourney for SASEHacks.</p>
     <p class="small"><a href="#stop-hero">Back to the top of the hill</a></p>
   </div>
 </footer>
